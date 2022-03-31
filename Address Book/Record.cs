@@ -13,7 +13,7 @@ namespace Address_Book
         public void print()
         {
             int r = 1; ///  For counting record 
-            foreach (var person in records)
+            foreach (var person in records.ToList())
             {
                 Console.WriteLine("\n\nRecord - " + r);
                 Console.WriteLine("First Name : " + person.firstName);
@@ -57,7 +57,7 @@ namespace Address_Book
         }
         public void UpdateRecords(string name)
         { 
-            foreach (var record in records)  // For checking all record
+            foreach (var record in records.ToList())  // For checking all record
             {
                 if (record.firstName == name )
                 {
@@ -132,6 +132,22 @@ namespace Address_Book
                 else
                 {
                     Console.WriteLine("Your entered details not match with any records");
+                }
+            }
+        }
+        public void Delete(string fn)
+        {
+            foreach (var record in records.ToList())  // For searching record
+            {
+                if (record.firstName == fn)
+                {
+                    records.Remove(record);
+                    Console.WriteLine("Record deleted Successfully");
+
+                }
+                else
+                {
+                    Console.WriteLine("Record not found");
                 }
             }
         }

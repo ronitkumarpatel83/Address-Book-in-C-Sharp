@@ -13,10 +13,13 @@ namespace Address_Book
             Record records = new Record(); // Creating object record class
             while (true)
             {
-                Console.WriteLine("\n\nWelcome to Address Book System");
+                Console.WriteLine("<<<<<<<<<<<<<<<<< ADDRESS BOOK >>>>>>>>>>>>>>>>>>");
+                Console.WriteLine("\nWelcome to Address Book System");
                 Console.WriteLine("1. Add a new Record");
                 Console.WriteLine("2. Update a Record");
+                Console.WriteLine("3. Delete");
                 Console.WriteLine("Press 0 for Exit");
+                Console.WriteLine("<<<<<<<<<<<<<<<<< ADDRESS BOOK >>>>>>>>>>>>>>>>>>");
                 Console.WriteLine("\nEnter your choice : ");
                 int ch = Convert.ToInt32(Console.ReadLine());
                 switch (ch)   // 
@@ -29,6 +32,12 @@ namespace Address_Book
                         Console.WriteLine("Enter your First Name : ");
                         string name = Console.ReadLine();
                         records.UpdateRecords(name);
+                        records.print();
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter your first name to delete the record : ");
+                        string fn = Console.ReadLine();
+                        records.Delete(fn);
                         records.print();
                         break;
                     case 0:
