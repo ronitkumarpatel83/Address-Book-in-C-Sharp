@@ -12,6 +12,10 @@ namespace Address_Book
         {
             Console.WriteLine("Welcome to Address Book");
             Console.ReadLine();
+
+            CreateContacts createContacts = new CreateContacts();
+            createContacts.CC();
+
         }
     }
 }
