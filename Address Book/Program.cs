@@ -10,13 +10,33 @@ namespace Address_Book
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Address Book");
-            Console.ReadLine();
-
-            Record record = new Record(); // Creating main method
-            record.AddRecord();
-            record.print();
-            
+            Record records = new Record(); // Creating object record class
+            while (true)
+            {
+                Console.WriteLine("\n\nWelcome to Address Book System");
+                Console.WriteLine("1. Add a new Record");
+                Console.WriteLine("2. Update a Record");
+                Console.WriteLine("Press 0 for Exit");
+                Console.WriteLine("\nEnter your choice : ");
+                int ch = Convert.ToInt32(Console.ReadLine());
+                switch (ch)   // 
+                {
+                    case 1:
+                        records.AddRecord();
+                        records.print();
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter your First Name : ");
+                        string name = Console.ReadLine();
+                        records.UpdateRecords(name);
+                        records.print();
+                        break;
+                    case 0:
+                        System.Environment.Exit(0);
+                        break;
+                }
+                Console.ReadLine();
+            }
         }
     }
 }
