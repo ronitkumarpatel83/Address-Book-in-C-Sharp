@@ -13,9 +13,10 @@ namespace Address_Book
             Console.WriteLine("Welcome to Address Book");
             Console.ReadLine();
 
-            CreateContacts createContacts = new CreateContacts();
-            createContacts.CC();
-
+            Record record = new Record(); // Creating main method
+            record.AddRecord();
+            record.print();
+            
         }
     }
 }
