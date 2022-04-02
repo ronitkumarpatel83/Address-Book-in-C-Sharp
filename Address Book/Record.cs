@@ -57,7 +57,7 @@ namespace Address_Book
         }
         public void UpdateRecords(string name)
         { 
-            foreach (var record in records.ToList())  // For checking all record
+            foreach (var record in records.ToList())  // For checking record
             {
                 if (record.firstName == name )
                 {
