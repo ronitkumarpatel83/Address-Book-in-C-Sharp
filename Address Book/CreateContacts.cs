@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Address_Book
 {
-    internal class CreateContacts  // Creating Class
+    internal class CreateContact
     {
-        //Variable
+        // Declaring class variable to get the all the details from user
         public string firstName { get; set; }
         public string middleName { get; set; }
         public string lastName { get; set; }
@@ -18,6 +18,5 @@ namespace Address_Book
         public string email { get; set; }
         public int zip { get; set; }
         public long phoneNumber { get; set; }
-
     }
 }

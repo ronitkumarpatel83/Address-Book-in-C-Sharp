@@ -10,38 +10,84 @@ namespace Address_Book
     {
         static void Main(string[] args)
         {
-            Record records = new Record(); // Creating object record class
+
+            Record records = new Record(); // Creating a object of Record class
+            string ab;
+        Again:
             while (true)
             {
-                Console.WriteLine("<<<<<<<<<<<<<<<<< ADDRESS BOOK >>>>>>>>>>>>>>>>>>");
-                Console.WriteLine("\nWelcome to Address Book System");
+                Console.WriteLine("\n\nWelcome to Address Book System");
                 Console.WriteLine("1. Add a new Record");
                 Console.WriteLine("2. Update a Record");
-                Console.WriteLine("3. Delete");
-                Console.WriteLine("Press 0 for Exit");
-                Console.WriteLine("<<<<<<<<<<<<<<<<< ADDRESS BOOK >>>>>>>>>>>>>>>>>>");
+                Console.WriteLine("3. Delete a Record");
+                Console.WriteLine("4.Exit");
                 Console.WriteLine("\nEnter your choice : ");
-                int ch = Convert.ToInt32(Console.ReadLine());
-                switch (ch)   // 
+
+                int ch = Convert.ToInt32(Console.ReadLine());// Storing a user choice in variable
+                switch (ch)
                 {
                     case 1:
-                        records.AddRecord();
-                        records.print();
+                        string n;
+                        Console.WriteLine("\nDo you want to add records in new Address Book ? If yes then press 1 : ");
+                        string c = Console.ReadLine(); // Storing a user choice in variable
+                        if (c == "1")
+                        {
+                            Console.WriteLine("\nEnter name of address book which you want to create : ");
+                            n = Console.ReadLine(); // Storing a address book name which is provided by user
+                            records.CreateAddressBook(n); // Calling a method to Create a new Address Book 
+                            records.AddRecords(n); // Calling a method of AddressBook class to add a new record to Address Book
+                            records.print(); // Displaying all records of All Address book
+
+                        }
+                        else
+                        {
+                            records.DiplayListOfAddressBook();// Displaying existing address book name
+                            if (records.temp == 1) //Checking that address book is empty or not
+                            {
+                                Console.WriteLine("\nPlease Add Address Book First by entering choice 1");
+                                goto Again;
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nSelect any one address book from above list : ");
+                                ab = Console.ReadLine(); // Storing a address book name which is provided by user
+                                records.AddRecords(ab); // Calling a method of AddressBook class to add a new record to Address Book
+                                records.print(); // Displaying all records of All Address book
+                            }
+                        }
                         break;
                     case 2:
-                        Console.WriteLine("Enter your First Name : ");
-                        string name = Console.ReadLine();
-                        records.UpdateRecords(name);
-                        records.print();
+                        records.DiplayListOfAddressBook();// Displaying existing address book name
+                        if (records.temp == 1)//Checking that address book is empty or not
+                        {
+                            Console.WriteLine("\nPlease Add Address Book First by entering choice 1");
+                            goto Again;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nSelect any one address book from above list : ");
+                            ab = Console.ReadLine();// Storing a address book name which is provided by user
+                            records.UpdateRecords(ab); // Calling a method of AddressBook class to update record to Address Book
+                            records.print(); // Displaying all records of All Address book
+                        }
                         break;
                     case 3:
-                        Console.WriteLine("Enter your first name to delete the record : ");
-                        string fn = Console.ReadLine();
-                        records.Delete(fn);
-                        records.print();
+                        records.DiplayListOfAddressBook(); // Displaying existing address book name
+                        if (records.temp == 1) //Checking that address book is empty or not
+                        {
+                            Console.WriteLine("\nPlease Add Address Book First by entering choice 1");
+                            goto Again;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nSelect any one address book from above list : ");
+                            ab = Console.ReadLine(); // Storing a address book name which is provided by user                  
+                            records.DeleteRecord(ab);// Calling a method of AddressBook class to delete record of address book
+                            records.print(); // Displaying all records of All Address book
+                        }
                         break;
-                    case 0:
-                        System.Environment.Exit(0);
+                    case 4:
+                        System.Environment.Exit(0); // Exit
                         break;
                 }
                 Console.ReadLine();
