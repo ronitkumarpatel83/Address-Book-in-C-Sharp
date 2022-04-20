@@ -21,7 +21,9 @@ namespace Address_Book
                 Console.WriteLine("1. Add a new Record");
                 Console.WriteLine("2. Update a Record");
                 Console.WriteLine("3. Delete a Record");
-                Console.WriteLine("4.Exit");
+                Console.WriteLine("4. Display all persons by City name");
+                Console.WriteLine("5. Display all persons by State name");
+                Console.WriteLine("6.Exit");
                 Console.WriteLine("\nEnter your choice : ");
 
                 int ch = Convert.ToInt32(Console.ReadLine());// Storing a user choice in variable
@@ -88,6 +90,16 @@ namespace Address_Book
                         }
                         break;
                     case 4:
+                        Console.WriteLine("Enter any city name : ");
+                        string city = Console.ReadLine();
+                        records.DisplayPersonsByCityName(city);
+                        break;
+                    case 5:
+                        Console.WriteLine("Enter any state name : ");
+                        string state = Console.ReadLine();
+                        records.DisplayPersonsByCityName(state);
+                        break;
+                    case 6:
                         System.Environment.Exit(0); // Exit
                         break;
                 }
