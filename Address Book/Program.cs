@@ -16,7 +16,8 @@ namespace Address_Book
         Again:
             while (true)
             {
-                Console.WriteLine("\n\nWelcome to Address Book System");
+                //
+                Console.WriteLine("Welcome to Address Book System\n");
                 Console.WriteLine("1. Add a new Record");
                 Console.WriteLine("2. Update a Record");
                 Console.WriteLine("3. Delete a Record");
