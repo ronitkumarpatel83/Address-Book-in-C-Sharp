@@ -12,6 +12,8 @@ namespace Address_Book
         List<string> cityName = new List<string>();
         List<string> stateName = new List<string>();
         Dictionary<string, List<CreateContact>> dict = new Dictionary<string, List<CreateContact>>(); // Creating dictionary to Maintain all the address book 
+        Dictionary<string, List<CreateContact>> recordsByCity = new Dictionary<string, List<CreateContact>>();
+        Dictionary<string, List<CreateContact>> recordsByState = new Dictionary<string, List<CreateContact>>();
         public void CreateAddressBook(string n) // class method to create new address book and store it in dictionary
         {
             records.Add(n); // Add address book name which is provided by user  in address book list
@@ -314,6 +316,39 @@ namespace Address_Book
                             }
                         }
                     }
+                }
+            }
+        }
+        public void AddPersonsInDictionaryByCityName() // Class method to display all the records of all address book
+        {
+            foreach (var city in cityName)
+            {
+                foreach (var content in dict.Keys) // Accessing all the address book name of dictionary
+                {
+                    foreach (var value in dict[content].ToList()) // Accessing all the address book records  by dictionary key
+                    {
+                        if (value.city == city)
+                        {
+                            recordsByCity[city].Add(value);
+                        }
+                    }
+                }
+            }
+        }
+        public void AddPersonsInDictionaByStateName() // Class method to display all the records of all address book
+        {
+            foreach (var state in stateName)
+            {
+                foreach (var content in dict.Keys) // Accessing all the address book name of dictionary
+                {
+                    foreach (var value in dict[content].ToList()) // Accessing all the address book records  by dictionary key
+                    {
+                        if (value.state == state)
+                        {
+                            recordsByState[state].Add(value);
+                        }
+                    }
+
                 }
             }
         }
