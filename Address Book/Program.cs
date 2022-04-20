@@ -24,8 +24,8 @@ namespace Address_Book
                 Console.WriteLine("4. Display all persons by City name");
                 Console.WriteLine("5. Display all persons by State name");
                 Console.WriteLine("6. Search Person by City or State");
-                //Console.WriteLine("7. ");
-                Console.WriteLine("8.Exit");
+                Console.WriteLine("7. Count Person record by city name \n8. Count Person record by state name");
+                Console.WriteLine("9.Exit");
                 Console.WriteLine("\nEnter your choice : ");
 
                 int ch = Convert.ToInt32(Console.ReadLine());// Storing a user choice in variable
@@ -106,6 +106,18 @@ namespace Address_Book
                         records.AddPersonsInDictionaryByCityName();
                         break;
                     case 7:
+                        records.AddPersonsInDictionaryByCityName();
+                        Console.WriteLine("\nEnter any city name : ");
+                        string cn = Console.ReadLine();
+                        records.CountPersonsByCity(cn);
+                        break;
+                    case 8:
+                        records.AddPersonsInDictionaByStateName();
+                        Console.WriteLine("\nEnter any state name : ");
+                        string sn = Console.ReadLine();
+                        records.CountPersonsByState(sn);
+                        break;
+                    case 9:
                         System.Environment.Exit(0); // Exit
                         break;
                 }

@@ -384,5 +384,28 @@ namespace Address_Book
                 }
             }
         }
+        public int CountPersonsByCity(string c)
+        {
+            foreach (var city in recordsByCity.Keys)
+            {
+                if (city.Equals(c.ToLower()))
+                {
+                    return recordsByCity[city].Count;
+                }
+            }
+            return 0;
+        }
+        // Count the total number of persons by state name
+        public int CountPersonsByState(string s)
+        {
+            foreach (var state in recordsByState.Keys)
+            {
+                if (state.Equals(s.ToLower()))
+                {
+                    return recordsByState[state].Count;
+                }
+            }
+            return 0;
+        }
     }
 }
