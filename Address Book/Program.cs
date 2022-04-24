@@ -118,10 +118,18 @@ namespace Address_Book
                         records.CountPersonsByState(sn);
                         break;
                     case 9:
+                        records.SortByPersonName();
+                        break;
+                    case 10:
                         System.Environment.Exit(0); // Exit
                         break;
                 }
-                Console.ReadLine();
+                Console.WriteLine("\n\nPlease enter to continue....Otherwise press any key to exit");
+                string e = Console.ReadLine();
+                if (e != String.Empty)
+                {
+                    System.Environment.Exit(0);
+                }
             }
         }
     }
