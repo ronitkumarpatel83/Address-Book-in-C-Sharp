@@ -102,7 +102,7 @@ namespace Address_Book
                         records.DisplayPersonsByCityName(state);
                         break;
                     case 6:
-                        records.AddPersonsInDictionaByStateName();
+                        records.AddPersonsInDictionaryByStateName();
                         records.AddPersonsInDictionaryByCityName();
                         break;
                     case 7:
@@ -112,7 +112,7 @@ namespace Address_Book
                         records.CountPersonsByCity(cn);
                         break;
                     case 8:
-                        records.AddPersonsInDictionaByStateName();
+                        records.AddPersonsInDictionaryByStateName();
                         Console.WriteLine("\nEnter any state name : ");
                         string sn = Console.ReadLine();
                         records.CountPersonsByState(sn);
