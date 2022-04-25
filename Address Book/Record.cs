@@ -559,11 +559,46 @@ namespace Address_Book
             }
             return 0;
         }
+        /// <summary>
+        /// Sorts the name of the by person.
+        /// </summary>
         public void SortByPersonName()
         {
             foreach (var content in dict.Keys.ToList())
             {
                 dict[content] = dict[content].OrderBy(x => x.firstName).ToList();
+            }
+        }
+        /// <summary>
+        /// Sorts the by city.
+        /// </summary>
+        public void SortByCity()
+        {
+            foreach (var content in dict.Keys.ToList())
+            {
+                dict[content] = dict[content].OrderBy(x => x.city).ToList();
+            }
+            DisplayDictionary();
+        }
+        /// <summary>
+        /// Sorts the state of the by.
+        /// </summary>
+        public void SortByState()
+        {
+            foreach (var content in dict.Keys.ToList())
+            {
+                dict[content] = dict[content].OrderBy(x => x.state).ToList();
+            }
+            DisplayDictionary();
+        }
+        /// <summary>
+        /// Sorts the by zip.
+        /// </summary>
+        public void SortByZip()
+        {
+            foreach (var content in dict.Keys.ToList())
+            {
+                dict[content] = dict[content].OrderBy(x => x.zip).ToList();
             }
             DisplayDictionary();
         }

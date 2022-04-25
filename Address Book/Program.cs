@@ -25,6 +25,7 @@ namespace Address_Book
                 Console.WriteLine("5. Display all persons by State name");
                 Console.WriteLine("6. Search Person by City or State");
                 Console.WriteLine("7. Count Person record by city name \n8. Count Person record by state name");
+                Console.WriteLine("10. Display all the record by City,State and Zip");
                 Console.WriteLine("9.Exit");
                 Console.WriteLine("\nEnter your choice : ");
 
@@ -119,8 +120,29 @@ namespace Address_Book
                         break;
                     case 9:
                         records.SortByPersonName();
+                        records.DisplayDictionary();
                         break;
                     case 10:
+                        Console.WriteLine("How you want to sort all the records Address book vise : ");
+                        Console.WriteLine("1.By City\n2.By State\n3.By ZipCode");
+                        int choice = Convert.ToInt32(Console.ReadLine());
+                        switch (choice)
+                        {
+                            case 0:
+                                records.SortByCity();
+                                records.DisplayDictionary();
+                                break;
+                            case 1:
+                                records.SortByState();
+                                records.DisplayDictionary();
+                                break;
+                            case 2:
+                                records.SortByZip();
+                                records.DisplayDictionary();
+                                break;
+                        }
+                        break;
+                    case 11:
                         System.Environment.Exit(0); // Exit
                         break;
                 }
